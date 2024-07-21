@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import Prose from "../../components/Prose.astro";
 import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
 
 export async function getStaticPaths() {
@@ -20,5 +21,7 @@ const { Content, remarkPluginFrontmatter } = await entry.render();
     minutesRead: remarkPluginFrontmatter.minutesRead,
   }}
 >
-  <Content />
+  <Prose>
+    <Content />
+  </Prose>
 </MarkdownPostLayout>
